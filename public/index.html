@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALAMANDIRA — The House of Cinema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CINEMATIC INTRO -->
+
+    <section id="intro">
+
+        <div class="projector-light"></div>
+
+        <div class="screen">
+            <div class="screen-content">
+                <p class="intro-label">THE LANGUAGE OF CINEMA</p>
+                <h1 id="cinema-word"></h1>
+            </div>
+        </div>
+
+        <div class="intro-title" id="intro-title">
+            <h1>KALAMANDIRA</h1>
+            <p>THE HOUSE OF CINEMA</p>
+        </div>
+
+        <div class="intro-grain"></div>
+
+    </section>
+
+
+    <!-- MAIN APPLICATION -->
+
+    <main id="app" class="hidden">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <span class="brand-symbol">🎞</span>
+                <span class="brand-name">KALAMANDIRA</span>
+            </div>
+
+            <div class="side-menu">
+
+                <button class="menu-item active" data-page="dashboard">
+                    <span class="menu-icon">▤</span>
+                    <span class="menu-text">Rangam</span>
+                </button>
+
+                <button class="menu-item" data-page="movies">
+                    <span class="menu-icon">🎞</span>
+                    <span class="menu-text">Chitra</span>
+                </button>
+
+                <button class="menu-item" data-page="add">
+                    <span class="menu-icon">✚</span>
+                    <span class="menu-text">Srijan</span>
+                </button>
+
+                <button class="menu-item" data-page="genres">
+                    <span class="menu-icon">◉</span>
+                    <span class="menu-text">Rasa</span>
+                </button>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <button class="menu-item" data-page="settings">
+                    <span class="menu-icon">⚙</span>
+                    <span class="menu-text">Ayojana</span>
+                </button>
+
+                <div class="sidebar-footer">
+                    <span>THE HOUSE OF CINEMA</span>
+                    <span class="footer-symbol">▰ ▱ ▰</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div>
+                    <p class="top-label">
+                        KALAMANDIRA /
+                        <span id="breadcrumb">RANGAM</span>
+                    </p>
+                </div>
+
+                <div class="top-actions">
+
+                    <button id="language-toggle" class="top-button">
+                        EN
+                    </button>
+
+                    <button id="theme-toggle" class="top-button">
+                        ◐
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- NETFLIX STYLE HERO -->
+
+            <section id="featured-hero" class="featured-hero">
+
+                <div class="hero-backdrop">
+
+                    <img
+                        id="hero-backdrop-image"
+                        src=""
+                        alt="Featured Movie">
+
+                </div>
+
+                <div class="hero-video-container">
+
+                    <iframe
+                        id="hero-trailer"
+                        src=""
+                        title="Featured Movie Trailer"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <div class="hero-gradient"></div>
+
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        KALAMANDIRA FEATURE
+                    </span>
+
+                    <h1 id="hero-title">
+                        Loading Movies...
+                    </h1>
+
+                    <div class="hero-meta">
+
+                        <span id="hero-year"></span>
+
+                        <span id="hero-rating"></span>
+
+                        <span id="hero-genre"></span>
+
+                    </div>
+
+                    <p id="hero-description"></p>
+
+                    <div class="hero-buttons">
+
+                        <button
+                            id="hero-play-button"
+                            class="hero-play-button">
+                            ▶ Play Trailer
+                        </button>
+
+                        <button
+                            id="hero-info-button"
+                            class="hero-info-button">
+                            ℹ More Info
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PAGE CONTENT -->
+
+            <div class="dashboard-content" id="page-content">
+
+                <!-- WELCOME -->
+
+                <section class="welcome-section">
+
+                    <div>
+
+                        <p class="section-kicker">
+                            YOUR CINEMA UNIVERSE
+                        </p>
+
+                        <h1>Namaskaram.</h1>
+
+                        <p class="welcome-description">
+                            Every film has a story.
+                            Every collection has a soul.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-mark">🎬</div>
+
+                </section>
+
+
+                <!-- STATS -->
+
+                <section class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <p class="stat-label">
+                            TOTAL CHITRA
+                        </p>
+
+                        <h2 id="total-movies">00</h2>
+
+                        <span class="stat-note">
+                            Movies in your collection
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <p class="stat-label">
+                            RASA
+                        </p>
+
+                        <h2 id="total-genres">00</h2>
+
+                        <span class="stat-note">
+                            Genres explored
+                        </span>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <p class="stat-label">
+                            COLLECTION
+                        </p>
+
+                        <h2 id="latest-year">—</h2>
+
+                        <span class="stat-note">
+                            Latest release year
+                        </span>
+
+                    </article>
+
+                </section>
+
+
+                <!-- MOVIE COLLECTION -->
+
+                <section class="collection-section">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <p class="section-kicker">
+                                THE ARCHIVE
+                            </p>
+
+                            <h2>Your Chitra</h2>
+
+                        </div>
+
+                        <button
+                            class="add-movie-button"
+                            data-page="add">
+
+                            + Add Chitra
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- SEARCH & FILTER -->
+
+                    <div class="movie-toolbar">
+
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search title or genre...">
+
+                        <select id="genre-filter">
+
+                            <option value="all">
+                                All Genres
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MOVIE GRID -->
+
+                    <div
+                        id="movie-grid"
+                        class="movie-grid">
+                    </div>
+
+
+                    <!-- EMPTY STATE -->
+
+                    <div
+                        id="empty-state"
+                        class="empty-state">
+
+                        <div class="empty-symbol">🎞</div>
+
+                        <h3>
+                            Your cinema journey begins here.
+                        </h3>
+
+                        <p>
+                            Add your first movie to build your collection.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MOVIE DETAILS MODAL -->
+
+    <div id="movie-modal" class="movie-modal hidden">
+
+        <div
+            class="movie-modal-backdrop"
+            id="movie-modal-backdrop">
+        </div>
+
+        <div class="movie-modal-container">
+
+            <button
+                id="movie-modal-close"
+                class="movie-modal-close"
+                title="Close">
+                &times;
+            </button>
+
+            <div class="movie-modal-content">
+
+                <!-- MOVIE POSTER -->
+
+                <div class="movie-modal-poster">
+
+                    <img
+                        id="modal-movie-poster"
+                        src=""
+                        alt="Movie Poster">
+
+                </div>
+
+
+                <!-- MOVIE INFORMATION -->
+
+                <div class="movie-modal-info">
+
+                    <p class="movie-modal-kicker">
+                        KALAMANDIRA CINEMA ARCHIVE
+                    </p>
+
+                    <h1 id="modal-movie-title">
+                        Movie Title
+                    </h1>
+
+                    <div class="movie-modal-meta">
+
+                        <span id="modal-movie-year"></span>
+
+                        <span class="modal-separator">|</span>
+
+                        <span id="modal-movie-rating"></span>
+
+                    </div>
+
+                    <div class="movie-modal-divider"></div>
+
+                    <div class="movie-modal-detail">
+
+                        <span class="modal-detail-label">GENRE</span>
+
+                        <p id="modal-movie-genre"></p>
+
+                    </div>
+
+                    <div class="movie-modal-detail">
+
+                        <span class="modal-detail-label">DIRECTOR</span>
+
+                        <p id="modal-movie-director"></p>
+
+                    </div>
+
+                    <div class="movie-modal-detail">
+
+                        <span class="modal-detail-label">CAST</span>
+
+                        <p id="modal-movie-actors"></p>
+
+                    </div>
+
+                    <div class="movie-modal-detail">
+
+                        <span class="modal-detail-label">ABOUT THE FILM</span>
+
+                        <p id="modal-movie-description">
+                            No description available.
+                        </p>
+
+                    </div>
+
+
+                    <!-- TRAILER / GLIMPSE -->
+
+                    <div class="movie-modal-detail trailer-section">
+
+                        <span class="modal-detail-label">
+                            TRAILER / GLIMPSE
+                        </span>
+
+                        <div class="trailer-container">
+
+                            <iframe
+                                id="modal-movie-trailer"
+                                src=""
+                                title="Movie Trailer"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OTT INFORMATION -->
+
+                    <div class="movie-modal-detail ott-section">
+
+                        <span class="modal-detail-label">
+                            WHERE TO WATCH
+                        </span>
+
+                        <p id="modal-ott-platform">
+                            Not available
+                        </p>
+
+                        <p id="modal-ott-status"></p>
+
+                        <a
+                            id="modal-ott-link"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="ott-watch-button"
+                            style="display:none;">
+
+                            WATCH ON OTT ↗
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FULLSCREEN -->
+
+    <button
+        id="fullscreen-toggle"
+        class="cinema-fullscreen"
+        title="Toggle Fullscreen">
+        ⛶
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
