@@ -1900,53 +1900,56 @@ function createMovieCard(movie, escapeHTML) {
 
 function updateMovieStats(movies) {
 
-    const totalMovies = document.getElementById(
-        "total-movies"
-    );
+    const totalMovies = document.getElementById("total-movies");
 
-    const totalGenres = document.getElementById(
-        "total-genres"
-    );
+    const totalGenres = document.getElementById("total-genres");
 
-    const latestYear = document.getElementById(
-        "latest-year"
-    );
+    const latestYear = document.getElementById("latest-year");
 
 
     if (totalMovies) {
-
         totalMovies.textContent = movies.length;
-
     }
+
+
+    /* COUNT UNIQUE GENRES */
+
+    const allGenres = movies.flatMap(movie => {
+
+        const genreList = Array.isArray(movie.genre)
+            ? movie.genre
+            : String(movie.genre ?? "").split(",");
+
+        return genreList
+            .map(genre => String(genre).trim().toLowerCase())
+            .filter(Boolean);
+
+    });
+
+    const uniqueGenres = new Set(allGenres);
 
 
     if (totalGenres) {
-
-        totalGenres.textContent = new Set(
-
-            movies.map(movie => movie.genre?.trim().toLowerCase())
-
-                .filter(Boolean)
-
-        ).size;
-
+        totalGenres.textContent = uniqueGenres.size;
     }
+
+
+    /* LATEST YEAR */
+
+    const years = movies
+        .map(movie => Number(movie.year))
+        .filter(year => Number.isFinite(year) && year > 0);
 
 
     if (latestYear) {
 
-        latestYear.textContent = movies.length
-
-            ? Math.max(
-                ...movies.map(movie => Number(movie.year) || 0)
-            )
-
+        latestYear.textContent = years.length
+            ? Math.max(...years)
             : "—";
 
     }
 
 }
-
 
 /* ============================= */
 /* GENRE FILTER */
@@ -1960,15 +1963,21 @@ function populateGenreFilter(movies) {
 
     if (!genreFilter) return;
 
-
     const selectedValue = genreFilter.value;
-
 
     const genres = [...new Set(
 
-        movies.map(movie => movie.genre?.trim())
+        movies.flatMap(movie => {
 
-            .filter(Boolean)
+            const genreList = Array.isArray(movie.genre)
+                ? movie.genre
+                : String(movie.genre ?? "").split(",");
+
+            return genreList
+                .map(genre => String(genre).trim())
+                .filter(Boolean);
+
+        })
 
     )].sort();
 
