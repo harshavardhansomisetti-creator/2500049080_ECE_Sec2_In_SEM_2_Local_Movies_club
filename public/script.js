@@ -1458,6 +1458,9 @@ const url = editMovieId
             ? "PUT"
             : "POST";
 
+        console.log("EDIT MOVIE ID:", editMovieId);
+console.log("REQUEST METHOD:", method);
+
 
         const response = await fetch(url, {
 
