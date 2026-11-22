@@ -933,15 +933,17 @@ async function loadGenresPage() {
 
         movies.forEach(movie => {
 
-            const genre = movie.genre?.trim() || "Uncategorized";
+           const genre = (Array.isArray(movie.genre)
+    ? movie.genre.join(", ")
+    : String(movie.genre ?? "")).trim() || "Uncategorized";
 
-            if (!grouped[genre]) {
-                grouped[genre] = [];
-            }
+if (!grouped[genre]) {
+    grouped[genre] = [];
+}
 
-            grouped[genre].push(movie);
+grouped[genre].push(movie);
 
-        });
+});
 
         const genreNames = Object.keys(grouped).sort();
 
