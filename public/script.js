@@ -1589,18 +1589,17 @@ async function loadMovies() {
 
         movies.forEach(movie => {
 
-            const genre = movie.genre?.trim() || "Uncategorized";
+           const genre = (Array.isArray(movie.genre)
+    ? movie.genre.join(", ")
+    : String(movie.genre ?? "")).trim() || "Uncategorized";
 
-            if (!groupedMovies[genre]) {
+if (!grouped[genre]) {
+    grouped[genre] = [];
+}
 
-                groupedMovies[genre] = [];
+grouped[genre].push(movie);
 
-            }
-
-            groupedMovies[genre].push(movie);
-
-        });
-
+});
 
         /* ALL MOVIES ROW */
 
