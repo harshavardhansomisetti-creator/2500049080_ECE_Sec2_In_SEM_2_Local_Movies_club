@@ -1446,6 +1446,8 @@ document.addEventListener("submit", async event => {
 
     /* SAVE */
 
+    console.log("MOVIE DATA SENT:", movieData);
+
     try {
 
 const url = editMovieId
