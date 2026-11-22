@@ -102,19 +102,25 @@ app.get("/api/movies/:id", async (req, res) => {
 
 app.post("/api/movies", async (req, res) => {
     try {
+
+        console.log("RECEIVED MOVIE DATA:", req.body);
+
         const movie = await Movie.create(req.body);
+
+        console.log("SAVED MOVIE DATA:", movie.toObject());
 
         res.status(201).json(movie);
 
     } catch (err) {
-        console.error("Movie creation error:", err.message);
+
+        console.error("Movie creation error:", err);
 
         res.status(400).json({
             message: err.message
         });
+
     }
 });
-
 /* ============================= */
 /* UPDATE MOVIE */
 /* ============================= */
