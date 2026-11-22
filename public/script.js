@@ -1330,14 +1330,12 @@ document.addEventListener("click", async (event) => {
 
         try {
 
-          const response = await fetch(
-    `https://kalamandira.onrender.com/api/movies/${editMovieId}`
-),
-                {
-                    method: "DELETE"
-                }
-            );
-
+       const response = await fetch(
+    `https://kalamandira.onrender.com/api/movies/${movieId}`,
+    {
+        method: "DELETE"
+    }
+);
             const result = await response.json();
 
             if (!response.ok) {
