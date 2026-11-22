@@ -43,11 +43,23 @@ const movieSchema = new mongoose.Schema(
             type: [String],
             default: []
         },
-        ott: {
+       
+        ottLink: {
             type: String,
             default: "",
             trim: true
         },
+        ottPlatform: {
+            type: String,
+            default: "",
+            trim: true
+        },
+        ottStatus: {
+            type: String,
+            default: "",
+            trim: true
+        },
+
         trailer: {
             type: String,
             default: "",
