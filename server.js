@@ -128,40 +128,36 @@ app.post("/api/movies", async (req, res) => {
 app.put("/api/movies/:id", async (req, res) => {
     try {
 
-        console.log("UPDATE REQUEST DATA:", req.body);
+        console.log("========== UPDATE REQUEST ==========");
+        console.log("ID:", req.params.id);
+        console.log("BODY:", JSON.stringify(req.body, null, 2));
 
-        const movie = await Movie.findByIdAndUpdate(
-            req.params.id,
-            {
-                $set: {
-                    title: req.body.title,
-                    description: req.body.description,
-                    poster: req.body.poster,
-                    genre: req.body.genre,
-                    language: req.body.language,
-                    year: req.body.year,
-                    rating: req.body.rating,
-                    director: req.body.director,
-                    actors: req.body.actors,
-                    ottLink: req.body.ottLink,
-                    ottPlatform: req.body.ottPlatform,
-                    ottStatus: req.body.ottStatus,
-                    trailer: req.body.trailer
-                }
-            },
-            {
-                returnDocument: "after",
-                runValidators: true
-            }
-        );
-
-        console.log("UPDATED MOVIE:", movie);
+        const movie = await Movie.findById(req.params.id);
 
         if (!movie) {
             return res.status(404).json({
                 message: "Movie not found"
             });
         }
+
+        movie.title = req.body.title;
+        movie.description = req.body.description;
+        movie.poster = req.body.poster;
+        movie.genre = req.body.genre;
+        movie.language = req.body.language;
+        movie.year = req.body.year;
+        movie.rating = req.body.rating;
+        movie.director = req.body.director;
+        movie.actors = req.body.actors;
+        movie.ottLink = req.body.ottLink;
+        movie.ottPlatform = req.body.ottPlatform;
+        movie.ottStatus = req.body.ottStatus;
+        movie.trailer = req.body.trailer;
+
+        await movie.save();
+
+        console.log("========== SAVED DOCUMENT ==========");
+        console.log(movie.toObject());
 
         res.json(movie);
 
@@ -175,7 +171,6 @@ app.put("/api/movies/:id", async (req, res) => {
 
     }
 });
-
 /* ============================= */
 /* DELETE MOVIE */
 /* ============================= */
