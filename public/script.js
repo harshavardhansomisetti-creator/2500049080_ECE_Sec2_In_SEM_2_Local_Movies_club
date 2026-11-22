@@ -929,7 +929,7 @@ async function loadGenresPage() {
 
         const movies = await response.json();
 
-        const grouped = {};
+        const groupedMovies = {};
 
         movies.forEach(movie => {
 
@@ -937,15 +937,15 @@ async function loadGenresPage() {
     ? movie.genre.join(", ")
     : String(movie.genre ?? "")).trim() || "Uncategorized";
 
-if (!grouped[genre]) {
-    grouped[genre] = [];
+if (!groupedMovies[genre]) {
+    groupedMovies[genre] = [];
 }
 
-grouped[genre].push(movie);
+groupedMovies[genre].push(movie);
 
 });
 
-        const genreNames = Object.keys(grouped).sort();
+        const genreNames = Object.keys(groupedMovies).sort();
 
         const escapeHTML = value => String(value ?? "")
             .replace(/&/g, "&amp;")
@@ -1032,9 +1032,9 @@ grouped[genre].push(movie);
 
                                     <p>
 
-                                        ${grouped[genre].length}
+                                        ${groupedMovies[genre].length}
 
-                                        ${grouped[genre].length === 1
+                                        ${groupedMovies[genre].length === 1
                                             ? "Film"
                                             : "Films"}
 
@@ -1092,7 +1092,7 @@ grouped[genre].push(movie);
 
                     const selectedGenre = button.dataset.openGenre;
 
-                    const selectedMovies = grouped[selectedGenre];
+                    const selectedMovies = groupedMovies[selectedGenre];
 
                     const selectedSection = document.getElementById(
                         "genre-selected-section"
@@ -1583,21 +1583,21 @@ async function loadMovies() {
             .replace(/'/g, "&#39;");
 
 
-        /* GROUP BY GENRE */
+      /* GROUP BY GENRE */
 
-        const groupedMovies = {};
+const groupedMovies = {};
 
-        movies.forEach(movie => {
+movies.forEach(movie => {
 
-           const genre = (Array.isArray(movie.genre)
-    ? movie.genre.join(", ")
-    : String(movie.genre ?? "")).trim() || "Uncategorized";
+    const genre = (Array.isArray(movie.genre)
+        ? movie.genre.join(", ")
+        : String(movie.genre ?? "")).trim() || "Uncategorized";
 
-if (!grouped[genre]) {
-    grouped[genre] = [];
-}
+    if (!groupedMovies[genre]) {
+        groupedMovies[genre] = [];
+    }
 
-grouped[genre].push(movie);
+    groupedMovies[genre].push(movie);
 
 });
 
