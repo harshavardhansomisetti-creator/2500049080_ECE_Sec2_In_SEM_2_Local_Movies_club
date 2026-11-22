@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -20,7 +19,9 @@ app.get("/health", (req, res) => {
         project: "KALAMANDIRA",
         database: mongoose.connection.readyState === 1
             ? "Connected"
-            : "Disconnected"
+            : "Disconnected",
+        databaseName: mongoose.connection.name,
+        collectionName: Movie.collection.name
     });
 });
 
@@ -159,7 +160,15 @@ async function startServer() {
             serverSelectionTimeoutMS: 10000
         });
 
+        console.log("--------------------------------");
         console.log("MongoDB Connected - KALAMANDIRA");
+        console.log("Database Name:", mongoose.connection.name);
+        console.log("Collection Name:", Movie.collection.name);
+
+        const movieCount = await Movie.countDocuments();
+
+        console.log("Movies Found:", movieCount);
+        console.log("--------------------------------");
 
         app.listen(PORT, "0.0.0.0", () => {
             console.log(`KALAMANDIRA running on port ${PORT}`);
