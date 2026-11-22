@@ -920,8 +920,7 @@ function openPage(page) {
 async function loadGenresPage() {
 
     try {
-
-        const response = await fetch("/api/movies");
+const response = await fetch("https://kalamandira.onrender.com/api/movies");
 
         if (!response.ok) {
             throw new Error("Genres API failed");
@@ -1222,9 +1221,9 @@ document.addEventListener("click", async (event) => {
 
         try {
 
-            const response = await fetch(
-                `/api/movies/${editMovieId}`
-            );
+       const response = await fetch(
+    `https://kalamandira.onrender.com/api/movies/${editMovieId}`
+);
 
             const movie = await response.json();
 
@@ -1331,13 +1330,12 @@ document.addEventListener("click", async (event) => {
 
         try {
 
-            const response = await fetch(
-                `/api/movies/${movieId}`,
-                {
-                    method: "DELETE"
-                }
-            );
-
+       const response = await fetch(
+    `https://kalamandira.onrender.com/api/movies/${movieId}`,
+    {
+        method: "DELETE"
+    }
+);
             const result = await response.json();
 
             if (!response.ok) {
@@ -1450,9 +1448,9 @@ document.addEventListener("submit", async event => {
 
     try {
 
-        const url = editMovieId
-            ? `/api/movies/${editMovieId}`
-            : "/api/movies";
+const url = editMovieId
+    ? `https://kalamandira.onrender.com/api/movies/${editMovieId}`
+    : "https://kalamandira.onrender.com/api/movies";
 
         const method = editMovieId
             ? "PUT"
@@ -1519,7 +1517,7 @@ async function loadMovies() {
 
     try {
 
-        const response = await fetch("/api/movies");
+        const response = await fetch("https://kalamandira.onrender.com/api/movies");
 
         if (!response.ok) {
 
@@ -2592,9 +2590,9 @@ document.addEventListener("click", async (event) => {
     try {
 
 
-        const response = await fetch(
-            `/api/movies/${movieId}`
-        );
+       const response = await fetch(
+    `https://kalamandira.onrender.com/api/movies/${movieId}`
+);
 
 
         const movie = await response.json();
@@ -2745,7 +2743,7 @@ async function loadFeaturedMovie() {
 
     try {
 
-        const response = await fetch("/api/movies");
+       const response = await fetch("https://kalamandira.onrender.com/api/movies");
 
         if (!response.ok) {
 
