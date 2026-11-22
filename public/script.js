@@ -920,8 +920,7 @@ function openPage(page) {
 async function loadGenresPage() {
 
     try {
-
-        const response = await fetch("/api/movies");
+const response = await fetch("https://kalamandira.onrender.com/api/movies");
 
         if (!response.ok) {
             throw new Error("Genres API failed");
