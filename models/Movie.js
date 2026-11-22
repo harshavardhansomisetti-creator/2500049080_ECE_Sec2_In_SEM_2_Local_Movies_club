@@ -33,6 +33,25 @@ const movieSchema = new mongoose.Schema(
             type: Number,
             min: 0,
             max: 10
+        },
+        director: {
+            type: String,
+            default: "",
+            trim: true
+        },
+        actors: {
+            type: [String],
+            default: []
+        },
+        ott: {
+            type: String,
+            default: "",
+            trim: true
+        },
+        trailer: {
+            type: String,
+            default: "",
+            trim: true
         }
     },
     { timestamps: true }
